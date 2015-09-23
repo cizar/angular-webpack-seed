@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html ng-app="app" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{%= o.htmlWebpackPlugin.options.title || 'Webpack App' %}</title>
+  <base href="/">
+</head>
+<body>
+  <ui-view></ui-view>
+  {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
+    <script src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry %}"></script>
+  {% } %}
+</body>
+</html>
